@@ -20,7 +20,8 @@ export default function TodoApp() {
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(TodoApp)
         }).then(()=>{
-            console.log("New task added")
+            console.log("New task added", TodoApp)
+            setTasks([...tasks,TodoApp]);
         })
     }
    
@@ -28,6 +29,7 @@ export default function TodoApp() {
       axios.delete("http://localhost:8080/todoModel/deleteTask/" + id).then(
         (response)=>{
           alert("Task has been deleted");
+        
         }
       )
     }
